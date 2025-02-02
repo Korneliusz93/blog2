@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: myproj
+Version: 0.0
+Summary: myproj
+Home-page: 
+Author: 
+Author-email: 
+Keywords: web pyramid pylons substanced
+Classifier: Programming Language :: Python
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Dist: pyramid
+Requires-Dist: pyramid_debugtoolbar
+Requires-Dist: waitress
+Requires-Dist: substanced
+Requires-Dist: pyramid_tm
+
+myproj README
+
+
+myproj Changelog
+=====================
+
+0.0
+---
+
+-  Initial version

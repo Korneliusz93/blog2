@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salut!</title>
+    <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
+    <link href="/static/css/stylesheet.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <nav>
+            <a href="/blog">Visit my blog</a> | <a href="https://github.com/Korneliusz93">Github</a>
+        </nav>
+        <h1>Welcome to My Corner of the Web!</h1>
+        <hr />
+    </div>
+    <div class="blog">
+        <p>Hey there! I'm Kornel – a cybersecurity geek, AI aficionado, and a developer-in-progress. I spend my days diving deep into system design, server configuration, and testing operating systems, but let’s be honest, I’m just as likely to be breaking things as I am fixing them (it’s all part of the fun).</p>
+
+        <p>When I'm not knee-deep in code, you can find me traveling the world and soaking in new cultures, with a particular love for history and the arts. I believe the more you understand the past, the more you can fuel your creativity for the future. So don’t be surprised if my blog occasionally veers into some deep dives on history or art—it’s all about broadening the horizon!</p>
+
+        <p>Oh, and did I mention I’m a bookworm? Between coding marathons and exploring new places, I’m often buried in a good book. Expect the occasional book review here, because who says you can't mix tech with some literary inspiration?</p>
+
+        <p>If you’re into tech, travel, history, or just want to know more about my journey as a developer, feel free to check out my blog. It’s where I share insights, experiences, and maybe a few questionable puns along the way. Welcome aboard!</p>
+        
+    </div>
+    <footer> <small>© Copyright 2025, Kornel Rzeczycki</small> </footer>
+</body>
+</html>

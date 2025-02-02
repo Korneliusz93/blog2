@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>${title}</title>
+    <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
+    <link href="/static/css/stylesheet.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <nav>
+            <a href="/blog">Back to Blog Posts</a>
+        </nav>
+        <h1>${title}</h1>
+    </div>
+    <div class="entry">
+        <div class="post_date">${date}</div>
+        ${structure:body}
+    </div>
+    <footer> <small>© Copyright 2025, Kornel Rzeczycki</small> </footer>
+</body>
+</html>

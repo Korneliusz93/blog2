@@ -1,0 +1,10 @@
+<html>
+<head><title>Add Blog Entry</title></head>
+<body>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="body" placeholder="Body"></textarea>
+        <button type="submit" name="submit">Add Blog Entry</button>
+    </form>    
+</body>
+</html>

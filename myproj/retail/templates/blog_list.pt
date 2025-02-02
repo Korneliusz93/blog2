@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Le journal</title>
+    <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
+    <link href="/static/css/stylesheet.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <nav>
+            <a href="/">Back to Welcome Screen</a>
+        </nav>
+        <h1>Welcome to My Blog!</h1>
+        <hr />
+    </div>
+    <div class="blog">
+        <p>Welcome to my blog! Here you'll find a collection of my thoughts, musings, and experiences. Feel free to browse around and let me know what you think!</p>
+        
+        <ul>
+            <li tal:repeat="entry blog_entries">
+                <a tal:attributes="href request.resource_url(entry)">
+                    <span tal:content="entry.title">Blog Entry Title</span>
+                </a>
+            </li>
+        </ul>
+        <div class="pagination">
+            <tal:block tal:condition="page > 1">
+                <a tal:attributes="href string:?page=${page-1}&page_size=${page_size}">Previous</a>
+            </tal:block>
+            <tal:block tal:condition="(page * page_size) < total_entries">
+                <a tal:attributes="href string:?page=${page+1}&page_size=${page_size}">Next</a>
+            </tal:block>
+        </div>
+    </div>
+    <script src="/static/js/pagination.js"></script>
+    <footer> <small>© Copyright 2025, Kornel Rzeczycki</small> </footer>
+</body>
+</html>
