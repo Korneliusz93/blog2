@@ -44,7 +44,7 @@ WebOb==1.8.9
 zipp==1.2.0
 zope.deprecation==4.4.0
 zope.interface==6.0
-git+https://github.com/Pylons/substanced
+git+https://github.com/Korneliusz93/substanced
 gunicorn==20.1.0
 git+https://github.com/Pylons/pyramid_chameleon
 git+https://github.com/dholth/cryptacular
