@@ -4,6 +4,7 @@ from substanced.interfaces import IFolder
 from zope.interface import implementer
 from substanced.content import content
 from pyramid.httpexceptions import HTTPFound
+from ..memory_tmp_store import MemoryTmpStore
 
 @content(
    'Folder',
@@ -12,6 +13,7 @@ from pyramid.httpexceptions import HTTPFound
 )
 @implementer(IFolder)
 class  BlogFolder(SequentialAutoNamingFolder):
+    
     """ A folder that contains blog entries """
     def __init__(self):
         super().__init__()

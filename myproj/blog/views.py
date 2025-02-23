@@ -12,7 +12,6 @@ from substanced.form import FormView
 from ..blog_folder.resources import BlogFolder
 
 from .resources import BlogEntrySchema
-from substanced.folder import SequentialAutoNamingFolder
 
 @mgmt_view(
     context=BlogFolder,  # Use BlogFolder or adjust based on your content structure
@@ -32,5 +31,4 @@ class AddBlogEntryView(FormView):
         blog_entry = registry.content.create('Blog Entry', **appstruct)
         self.context.add_next(blog_entry)
         return HTTPFound(self.request.sdiapi.mgmt_path(self.context, '@@contents'))
-
-
+    

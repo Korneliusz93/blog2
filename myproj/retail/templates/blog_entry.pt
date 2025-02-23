@@ -14,6 +14,10 @@
     <div class="entry">
         <div class="post_date">${date}</div>
         ${structure:body}
+        <script src="/static/js/fontChange.js"></script>
+    </div>
+    <div>
+        <img src="${image_url}" alt="Blog Image">
     </div>
     <footer> <small>© Copyright 2025, Kornel Rzeczycki</small> </footer>
 </body>

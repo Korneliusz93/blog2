@@ -59,6 +59,39 @@ footer {
   text-align: center;
 }
 
+/* Ensure images are responsive */
+img {
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center images horizontally */
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .title {
+      padding: 10px;
+  }
+
+  .entry {
+      padding: 10px;
+  }
+
+  footer {
+      padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+      font-size: 1.2em;
+  }
+
+  .entry {
+      font-size: 0.9em;
+  }
+}
+
 a {
     outline-color: transparent;
     text-decoration: none;

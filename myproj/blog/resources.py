@@ -8,9 +8,6 @@ from substanced.schema import (
     Schema,
     NameSchemaNode
 )
-from substanced.util import renamer
-import hashlib
-import secrets
 
 def context_is_a_blog_entry(context, request):
     return request.registry.content.istype(context, 'BlogEntry')
@@ -18,14 +15,11 @@ def context_is_a_blog_entry(context, request):
 @content('Blog Entry', icon='glyphicon glyphicon-book', add_view='add_blog_entry')
 class BlogEntry(Persistent):
     
-    def __init__(self, title='', body=''):
+    def __init__(self, title='', body='', image_url=''):
         self.title = title
         self.body = body
         self.date = datetime.datetime.now()  # Automatically set the current date and time
-
-def get_hash_value():
-    hash_value = secrets.token_hex(32)
-    return hash_value
+        self.image_url = image_url
 
 class BlogEntrySchema(Schema):
 
@@ -40,6 +34,12 @@ class BlogEntrySchema(Schema):
         colander.DateTime(),
         widget=deform.widget.HiddenWidget(),
         missing=colander.drop
+    )
+    image_url = colander.SchemaNode(
+        colander.String(),
+        title='Image URL',
+        missing='',
+        widget=deform.widget.TextInputWidget()
     )
 
 class BlogEntrySheet(PropertySheet):

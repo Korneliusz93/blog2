@@ -3,6 +3,7 @@ from pyramid.view import view_config
 from ..resources import Document
 from pyramid.response import Response
 from ..blog.resources import BlogEntry
+import pytz
 
 #
 #   Default "retail" view
@@ -34,7 +35,7 @@ def welcome_screen(context, request):
 
 @view_config(context=BlogEntry, renderer='templates/blog_entry.pt')
 def hello_world_of_blog_entry(context, request):
-    return {'title': context.title, 'body': context.body, 'date': context.date.strftime('%Y-%m-%d %H:%M')}
+    return {'title': context.title, 'body': context.body, 'image_url':context.image_url, 'date': context.date.strftime('%Y-%m-%d %H:%M')}
 
 @view_config(route_name='blog', renderer='templates/blog_list.pt')
 def blog_list_view(request):
@@ -47,6 +48,11 @@ def blog_list_view(request):
         for name, resource in blog_folder.items():
             if isinstance(resource, BlogEntry):
                 blog_entries.append(resource)
+    
+    # Convert all dates to offset-aware (UTC)
+    for entry in blog_entries:
+        if entry.date.tzinfo is None:
+            entry.date = entry.date.replace(tzinfo=pytz.UTC)
 
     # Sort blog entries chronologically by a hypothetical 'created' attribute
     blog_entries.sort(key=lambda entry: entry.date, reverse=True)
