@@ -1,0 +1,17 @@
+# Database files
+Data.fs
+Data.fs.index
+Data.fs.lock
+Data.fs.tmp
+
+# Audit files
+audit.fs
+audit.fs.index
+audit.fs.lock
+audit.fs.tmp
+
+# Temporary files
+tmp/
+
+# Build artifacts
+myproj.egg-info/

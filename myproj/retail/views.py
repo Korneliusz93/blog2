@@ -34,8 +34,9 @@ def welcome_screen(context, request):
     return {}
 
 @view_config(context=BlogEntry, renderer='templates/blog_entry.pt')
-def hello_world_of_blog_entry(context, request):
-    return {'title': context.title, 'body': context.body, 'image_url':context.image_url, 'date': context.date.strftime('%Y-%m-%d %H:%M')}
+def blog_entry_view(context, request):
+    image_url = f"http://localhost:6543/manage/images/{context.image_filename}"
+    return {'title': context.title, 'body': context.body, 'image_url':image_url, 'date': context.date.strftime('%Y-%m-%d %H:%M')}
 
 @view_config(route_name='blog', renderer='templates/blog_list.pt')
 def blog_list_view(request):
@@ -47,12 +48,17 @@ def blog_list_view(request):
     if blog_folder:
         for name, resource in blog_folder.items():
             if isinstance(resource, BlogEntry):
+                # Generate the image URL for each blog entry
+                image_url = f"http://localhost:6543/manage/images/{resource.image_filename}"
+                resource.image_url = image_url
                 blog_entries.append(resource)
     
     # Convert all dates to offset-aware (UTC)
     for entry in blog_entries:
         if entry.date.tzinfo is None:
             entry.date = entry.date.replace(tzinfo=pytz.UTC)
+
+    
 
     # Sort blog entries chronologically by a hypothetical 'created' attribute
     blog_entries.sort(key=lambda entry: entry.date, reverse=True)

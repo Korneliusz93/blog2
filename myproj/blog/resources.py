@@ -15,11 +15,12 @@ def context_is_a_blog_entry(context, request):
 @content('Blog Entry', icon='glyphicon glyphicon-book', add_view='add_blog_entry')
 class BlogEntry(Persistent):
     
-    def __init__(self, title='', body='', image_url=''):
+    def __init__(self, title='', body='', image_filename=''):
         self.title = title
         self.body = body
         self.date = datetime.datetime.now()  # Automatically set the current date and time
-        self.image_url = image_url
+        self.image_filename = image_filename
+        self.image_url = None
 
 class BlogEntrySchema(Schema):
 
@@ -35,7 +36,7 @@ class BlogEntrySchema(Schema):
         widget=deform.widget.HiddenWidget(),
         missing=colander.drop
     )
-    image_url = colander.SchemaNode(
+    image_filename = colander.SchemaNode(
         colander.String(),
         title='Image URL',
         missing='',

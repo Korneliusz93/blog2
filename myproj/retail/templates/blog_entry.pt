@@ -16,8 +16,9 @@
         ${structure:body}
         <script src="/static/js/fontChange.js"></script>
     </div>
-    <div>
-        <img src="${image_url}" alt="Blog Image">
+    <div id="image-container">
+        <img id="blog-image" src="${image_url}" alt="Blog Image" class="post_image">
+        <script src="/static/js/imageDisplay.js"></script>
     </div>
     <footer> <small>© Copyright 2025, Kornel Rzeczycki</small> </footer>
 </body>
