@@ -23,7 +23,7 @@
                         <span tal:content="entry.title">Blog Entry Title</span>
                     </div>
                 </a>
-                <p tal:content="entry.paragraph">Blog Entry Summary</p>
+                <p tal:content="entry.paragraph | string:No summary available">Blog Entry Summary</p>
             </li>
         </ul>
         <div class="pagination">
