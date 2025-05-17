@@ -29,8 +29,10 @@ class BlogEntry(Persistent):
 
     def produce_post_preview(self):
         first_paragraph =  "".join(re.sub(r'<.+?>','', re.split(r'\n+', str(self.body).strip())[0]))
+        if first_paragraph.isspace():
+            return 'No summary available'
         first_paragraph_words = first_paragraph.split(' ')
-        return first_paragraph + '...' if len(first_paragraph_words) < 30 else " ".join(first_paragraph_words[:30]) + '...'
+        return first_paragraph.replace('&nbsp;', ' ') + '...' if len(first_paragraph_words) < 30 else " ".join(first_paragraph_words[:30]).replace('&nbsp;', ' ') + '...'
 
 class BlogEntrySchema(Schema):
 
