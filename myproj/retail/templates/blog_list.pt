@@ -19,8 +19,11 @@
         <ul>
             <li tal:repeat="entry blog_entries">
                 <a tal:attributes="href request.resource_url(entry)">
-                    <span tal:content="entry.title">Blog Entry Title</span>
+                    <div class="preview">
+                        <span tal:content="entry.title">Blog Entry Title</span>
+                    </div>
                 </a>
+                <p tal:content="entry.paragraph">Blog Entry Summary</p>
             </li>
         </ul>
         <div class="pagination">

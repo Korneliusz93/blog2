@@ -53,6 +53,37 @@ ul li{
     background-repeat: no-repeat;
     padding-left: 2rem;
 }
+.preview {
+  display: block; /* Ensures the container behaves like a block element */
+  word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+  overflow-wrap: break-word; /* Ensures text wraps within the container */
+  white-space: normal; /* Allows text to wrap normally */
+  font: inherit; /* Inherit font styles from the parent */
+  color: inherit; /* Inherit text color */
+  text-decoration: none; /* Remove any text decorations */
+  background: none; /* Remove any background styles */
+  border: none; /* Remove any borders */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.preview p {
+  font: inherit; /* Inherit font styles from the parent */
+  color: inherit; /* Inherit text color */
+  text-decoration: none; /* Ensure no underline or other decorations */
+  background: none; /* Remove any background styles */
+  border: none; /* Remove any borders */
+  cursor: text; /* Set the cursor to text (not a pointer) */
+}
+
+.preview p:hover,
+.preview p:active,
+.preview p:focus {
+  text-decoration: none; /* Prevent any hover, active, or focus effects */
+  background: none; /* Prevent background changes */
+  color: inherit; /* Keep the original text color */
+}
+
 
 footer {
   margin-top: auto;

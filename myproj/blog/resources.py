@@ -4,6 +4,7 @@ import deform.widget
 from persistent import Persistent
 from substanced.property import PropertySheet
 from substanced.content import content
+import re
 from substanced.schema import (
     Schema,
     NameSchemaNode
@@ -18,9 +19,18 @@ class BlogEntry(Persistent):
     def __init__(self, title='', body='', image_filename=''):
         self.title = title
         self.body = body
+        self.paragraph = self.produce_post_preview(body)
+        self.author = ''
+        self.tags = []
+        self.comments = []
         self.date = datetime.datetime.now()  # Automatically set the current date and time
         self.image_filename = image_filename
         self.image_url = None
+
+    def produce_post_preview(self, body):
+        first_paragraph =  "".join(re.sub(r'<.+?>','', re.split(r'\n+', str(body).strip())[0]))
+        first_paragraph_words = first_paragraph.split(' ')
+        return first_paragraph + '...' if len(first_paragraph_words) < 30 else " ".join(first_paragraph_words[:30]) + '...'
 
 class BlogEntrySchema(Schema):
 
