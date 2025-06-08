@@ -16,7 +16,7 @@ def context_is_a_blog_entry(context, request):
 @content('Blog Entry', icon='glyphicon glyphicon-book', add_view='add_blog_entry')
 class BlogEntry(Persistent):
     
-    def __init__(self, title='', body='', image_filename=''):
+    def __init__(self, title='', body='', image_filename='', files=None):
         self.title = title
         self.body = body
         self.paragraph = self.produce_post_preview()
@@ -26,6 +26,7 @@ class BlogEntry(Persistent):
         self.date = datetime.datetime.now()  # Automatically set the current date and time
         self.image_filename = image_filename
         self.image_url = None
+        self.files = files or set()  # List of references to File objects
 
     def produce_post_preview(self):
         first_paragraph =  "".join(re.sub(r'<.+?>','', re.split(r'\n+', str(self.body).strip())[0]))
@@ -53,6 +54,12 @@ class BlogEntrySchema(Schema):
         title='Image URL',
         missing='',
         widget=deform.widget.TextInputWidget()
+    )
+    files = colander.SchemaNode(
+        colander.Set(),
+        title='Attach Files',
+        widget=deform.widget.CheckboxChoiceWidget(),
+        missing=set()
     )
 
 class BlogEntrySheet(PropertySheet):

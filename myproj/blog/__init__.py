@@ -14,3 +14,5 @@ def includeme(config):
     config.add_propertysheet('Basic', BlogEntrySheet, BlogEntry)
     config.scan('.resources')
     config.scan('.views')
+    config.scan('.file_views')
+    

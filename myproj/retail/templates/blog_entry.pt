@@ -15,6 +15,18 @@
         <div class="post_date">${date}</div>
         ${structure:body}
         <script src="/static/js/fontChange.js"></script>
+
+        <tal:block tal:condition="python:hasattr(context, 'files') and context.files and len(context.files) > 0">
+            <h3>Attached Files:</h3>
+                <ul>
+                    <li tal:repeat="file context.files">
+                        <tal:block tal:condition="python:type(file) is not str">
+                            <!--<a tal:attributes="href request.resource_url(file)" tal:content="file.__name__">File Name</a>-->
+                            <a tal:attributes="href request.resource_url(file, 'download')" tal:content="file.__name__">Download</a>
+                        </tal:block>
+                    </li>
+                </ul>
+        </tal:block>
     </div>
     <div id="image-container">
         <img id="blog-image" src="${image_url}" alt="Blog Image" class="post_image">
