@@ -22,7 +22,7 @@
                     <li tal:repeat="file context.files">
                         <tal:block tal:condition="python:type(file) is not str">
                             <!--<a tal:attributes="href request.resource_url(file)" tal:content="file.__name__">File Name</a>-->
-                            <a tal:attributes="href request.resource_url(file, 'download')" tal:content="file.__name__">Download</a>
+                            <a tal:attributes="href request.resource_url(file, 'view')" tal:content="file.__name__">View</a>
                         </tal:block>
                     </li>
                 </ul>

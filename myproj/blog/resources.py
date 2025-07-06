@@ -33,7 +33,7 @@ class BlogEntry(Persistent):
         if first_paragraph.isspace():
             return 'No summary available'
         first_paragraph_words = first_paragraph.split(' ')
-        return first_paragraph.replace('&nbsp;', ' ') + '...' if len(first_paragraph_words) < 30 else " ".join(first_paragraph_words[:30]).replace('&nbsp;', ' ') + '...'
+        return first_paragraph.replace('&nbsp;', ' ').encode('ascii', 'xmlcharrefreplace').decode("utf-8") + '...' if len(first_paragraph_words) < 30 else " ".join(first_paragraph_words[:30]).replace('&nbsp;', ' ') + '...'
 
 class BlogEntrySchema(Schema):
 
