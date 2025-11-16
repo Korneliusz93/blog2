@@ -3,7 +3,7 @@
 <head>
     <title>Le journal</title>
     <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
-    <link href="/static/css/stylesheet.css" rel="stylesheet">
+    <link href="/static/css/blog_list.css" rel="stylesheet">
 </head>
 <body>
     <div class="title">
@@ -18,11 +18,13 @@
         
         <ul>
             <li tal:repeat="entry blog_entries">
-                <a tal:attributes="href request.resource_url(entry)">
-                    <div class="preview">
-                        <span tal:content="entry.title">Blog Entry Title</span>
-                    </div>
-                </a>
+                <div class="blog-entry">
+                    <a tal:attributes="href request.resource_url(entry)">
+                        <div class="preview">
+                            <span tal:content="entry.title">Blog Entry Title</span>
+                        </div>
+                    </a>
+                </div>
                 <p tal:content="entry.paragraph | string:No summary available">Blog Entry Summary</p>
             </li>
         </ul>
